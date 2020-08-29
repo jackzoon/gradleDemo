@@ -1,0 +1,17 @@
+plugins {
+    id 'war'
+    id 'org.akhikhl.gretty' version '2.0.0'
+}
+
+dependencies {
+    compile project(":core")
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+gretty {
+    // 指定默认 Servlet容器，支持 jetty7/8/9， tomcat/7/8
+    servletContainer = 'tomcat8'
+    httpPort = 80
+    contextPath = '/'
+    httpsEnabled = true //开启https 生成自签名证书
+}
